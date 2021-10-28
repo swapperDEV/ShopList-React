@@ -1,8 +1,0 @@
-body[data-theme="dark"] {
-    --backgroundAct: #161722;
-    --textAct: #25273c;
-}
-body[data-theme="light"] {
-    --backgroundAct: #E6E6FA;
-    --textAct: #662d91;
-}
