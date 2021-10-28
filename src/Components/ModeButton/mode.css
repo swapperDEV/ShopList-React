@@ -1,0 +1,16 @@
+.switchs {
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    top: 1%;
+    right: 1%;
+}
+.fa-moon {
+    color: #662d91!important
+}
+@media (min-width: 1000px) {
+    .switchs {
+        top: 5%;
+        right: 5%;
+    }
+}
