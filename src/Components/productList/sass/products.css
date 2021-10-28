@@ -32,4 +32,8 @@
 .complete {
   text-decoration: line-through;
 }
+
+.complete {
+  opacity: 0.5;
+}
 /*# sourceMappingURL=products.css.map */

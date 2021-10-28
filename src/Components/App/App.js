@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import ProductForm from '../productForm/productForm'
 import ProductList from '../productList/productList'
 import './sass/style.css'
+import MainContener from './ui/appContener';
+import ProductFilter from '../ProductFilter/filter';
 
 class App extends Component {
   state = {
     products: [],
+    viewProducts: 'all'
   }
 
   componentDidMount = () => {
@@ -18,9 +21,6 @@ class App extends Component {
       listFromSave.forEach(e => {
         let string = e
         let search = new URLSearchParams(string)
-        for (let s of search) {
-          console.log(s)
-        }
         let completes = search.get('com')
         if(completes === 'false') {
           completes = false
@@ -36,7 +36,6 @@ class App extends Component {
           allList.push(newObj)
         }
       })
-      console.log(allList)
       this.setState({
         products: allList
       })
@@ -50,7 +49,6 @@ class App extends Component {
       textToSave+= '&id=' + e.id + '&nam=' + e.name + '&com='+ e.complete + '&,'
     })
     localStorage.setItem('list', textToSave)
-    console.log(textToSave)
   }
   addNewProduct = (name, complete) => {
     if(name.length > 0) {
@@ -85,19 +83,19 @@ class App extends Component {
       products: allProduct
     })
   }
+  viewProduct = (view) => {
+    this.setState({
+      viewProducts: view
+    })
+  }
   render() {
     return (
       <React.Fragment>
           <div className='app'>
-            <div className='top'>
-              <h1 className='h1'>ShopList <i className="fas fa-shopping-basket"></i></h1>
-            </div>
-            <div className='center'>
+              <MainContener classInput='top'/>
               <ProductForm method={this.addNewProduct}/>
-            </div>
-            <div className='bottom'>
-              <ProductList products={this.state.products} methodDel={this.deleteProduct} methodComplete={this.completeProduct}/>
-            </div>
+              <ProductList products={this.state.products} methodDel={this.deleteProduct} methodComplete={this.completeProduct} which={this.state.viewProducts}/>
+              <ProductFilter method={this.viewProduct}/>
           </div>
       </React.Fragment>
     )

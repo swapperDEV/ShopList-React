@@ -44,15 +44,30 @@ body
     background-color: var(--text2Act)
 .bottom
     margin-top: 15px
-    min-height: 40vh
+    min-height: 35vh
     background-color: var(--textAct)
-    max-height: 40vh
+    max-height: 35vh
     overflow-Y: scroll
     -ms-overflow-style: none
     scrollbar-width: none
     color: var(--text2Act)
 .bottom::-webkit-scrollbar 
   display: none
+.footer
+    margin-top: 10px
+    background-color: var(--textAct)
+    display: flex
+    justify-content: center
+    align-items: center    
+    color: var(--text2Act)
+.footer div 
+    padding: 2px
+    text-align: center
+    margin: 5px
+    transition: 0.1s ease
+.footer div:hover
+    cursor: pointer
+    transform: scale(1.1)
 
 @media (max-width: 500px)
     .center 
