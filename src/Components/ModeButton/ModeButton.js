@@ -4,7 +4,7 @@ import './mode.css'
 class ModeButton extends Component {
     state = {
         darkmode: true,
-        classes: 'far fa-sun changer',
+        classes: 'far fa-moon changer',
         classesLight: 'far fa-moon changer',
         classesDark: 'far fa-sun changer'
     }
