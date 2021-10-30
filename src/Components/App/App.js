@@ -4,6 +4,7 @@ import ProductList from '../productList/productList'
 import './sass/style.css'
 import MainContener from './ui/appContener';
 import ProductFilter from '../ProductFilter/filter';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -90,14 +91,16 @@ class App extends Component {
   }
   render() {
     return (
-      <React.Fragment>
-          <div className='app'>
-              <MainContener classInput='top'/>
-              <ProductForm method={this.addNewProduct}/>
-              <ProductList products={this.state.products} methodDel={this.deleteProduct} methodComplete={this.completeProduct} which={this.state.viewProducts}/>
-              <ProductFilter method={this.viewProduct}/>
-          </div>
-      </React.Fragment>
+      <Router>
+        <React.Fragment>
+            <div className='app'>
+                <MainContener classInput='top'/>
+                <ProductForm method={this.addNewProduct}/>
+                <ProductList products={this.state.products} methodDel={this.deleteProduct} methodComplete={this.completeProduct} which={this.state.viewProducts}/>
+                <ProductFilter method={this.viewProduct}/>
+            </div>
+        </React.Fragment>
+      </Router>
     )
   }
 }
